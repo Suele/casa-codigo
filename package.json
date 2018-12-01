@@ -1,0 +1,23 @@
+{
+  "name": "casa-codigo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suele/casa-codigo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suele/casa-codigo/issues"
+  },
+  "homepage": "https://github.com/Suele/casa-codigo#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
