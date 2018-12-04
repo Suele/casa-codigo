@@ -33,11 +33,24 @@ module.exports = class LivroDao {
             erro => {
                 if (erro) {
                     return reject('Não foi possível adicionar o livro!');
-                }
- 
+                } 
                 resolve();
             });
         });
     }
- 
+
+    buscaPorId(id){
+        return new Promise((resolve, reject) => {
+            this._db.get(
+                'SELECT * FROM livros where id=?',
+                [id],
+                erro => {
+                    if(erro){
+                        return reject('Não foi possível encontrar o livro.');
+                    }
+                    resolve();
+                }
+            );
+        });
+    }
 };
