@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário</title>
+</head>
+<body>
+  <h1>Formulário de Livros</h1>
+  <form action="/livros" method="post">
+  
+    <input type="hidden" id="id" name="id"/>
+    <div>
+      <label for="titulo">Titulo</label>
+      <input type="text" id="titulo" name="titulo"/>
+    </div>
+    <div>
+      <label for="preco">Preço</label>
+      <input type="text" name="preco" id="preco">
+    </div>
+    <div>
+      <label for="descricao">Descrição</label>
+      <textarea name="descricao" id="" cols="30" rows="10"></textarea>
+    </div>
+    <input type="submit" value="Salvar">
+  </form>
+</body>
+</html>
