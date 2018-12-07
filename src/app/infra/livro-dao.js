@@ -53,4 +53,30 @@ module.exports = class LivroDao {
             );
         });
     }
+
+    atualiza(livro){
+        return new Promise((resolve, reject) => {
+            this._db.run(
+                `
+                UPDATE livros SET 
+                titulo = ?
+                preco = ?
+                descricao = ?
+                WHERE id = ?
+                `,
+                [
+                    livro.titulo,
+                    livro.preco,
+                    livro.descricao,
+                    livro.id
+                ],
+                erro => {
+                    if(erro){
+                        return reject('Não foi possivel atualizar o livro.')
+                    }
+                    resolve()
+                }
+            )
+        });
+    }
 };
