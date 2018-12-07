@@ -16,7 +16,11 @@ module.exports = class LivroDao {
         });
     }
 
-    adiciona({titulo, preco, descricao}) {
+    adiciona({
+        titulo,
+        preco,
+        descricao
+    }) {
         return new Promise((resolve, reject) => {
             this._db.run(`
                     INSERT INTO livros (
@@ -25,27 +29,27 @@ module.exports = class LivroDao {
                         descricao
                     ) values (?,?,?)
                 `,
-            [
-                titulo,
-                preco,
-                descricao
-            ],
-            erro => {
-                if (erro) {
-                    return reject('Não foi possível adicionar o livro!');
-                } 
-                resolve();
-            });
+                [
+                    titulo,
+                    preco,
+                    descricao
+                ],
+                erro => {
+                    if (erro) {
+                        return reject('Não foi possível adicionar o livro!');
+                    }
+                    resolve();
+                });
         });
     }
 
-    buscaPorId(id){
+    buscaPorId(id) {
         return new Promise((resolve, reject) => {
             this._db.get(
                 'SELECT * FROM livros where id=?',
                 [id],
                 erro => {
-                    if(erro){
+                    if (erro) {
                         return reject('Não foi possível encontrar o livro.');
                     }
                     resolve();
@@ -54,7 +58,7 @@ module.exports = class LivroDao {
         });
     }
 
-    atualiza(livro){
+    atualiza(livro) {
         return new Promise((resolve, reject) => {
             this._db.run(
                 `
@@ -71,7 +75,7 @@ module.exports = class LivroDao {
                     livro.id
                 ],
                 erro => {
-                    if(erro){
+                    if (erro) {
                         return reject('Não foi possivel atualizar o livro.')
                     }
                     resolve()
